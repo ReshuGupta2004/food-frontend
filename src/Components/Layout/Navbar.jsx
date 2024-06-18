@@ -13,7 +13,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
-      console.log("Retrieved token:", token);
+      console.log("Retrieved token: logout", token);
     try {
       const response = await axios.get(
         "https://backend-food-amber.vercel.app/api/v1/user/logout",
