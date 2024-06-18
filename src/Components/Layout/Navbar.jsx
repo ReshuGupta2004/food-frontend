@@ -17,11 +17,14 @@ const token = localStorage.getItem("token");
       console.log("Retrieved token: logout", token);
     try {
       const response = await axios.get(
-        "https://backend-food-amber.vercel.app/api/v1/user/logout",
-        {
-          Authorization: `Bearer ${token}`,
-        }
-      );
+        "https://backend-food-amber.vercel.app/api/v1/user/logout",{
+     method: 'GET',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
       createToast(response.data.message, "success");
       setIsAuthorized(false);
       navigateTo("/login");
