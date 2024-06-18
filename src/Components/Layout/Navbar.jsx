@@ -26,7 +26,10 @@ const token = localStorage.getItem("token");
           }
         });
       createToast(response.data.message, "success");
-      localStorage.clear();
+              await new Promise((resolve) => {
+            localStorage.clear();
+            resolve();
+        });
       setIsAuthorized(false);
       localStorage.clear();
       navigateTo("/login");
