@@ -10,7 +10,8 @@ const Navbar = () => {
   const [show, setShow] = useState(false);
   const { isAuthorized, setIsAuthorized, user } = useContext(Context);
   const navigateTo = useNavigate();
-
+const token = localStorage.getItem("token");
+      console.log("Retrieved token: logout", token);
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
       console.log("Retrieved token: logout", token);
