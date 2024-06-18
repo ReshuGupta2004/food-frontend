@@ -26,7 +26,9 @@ const token = localStorage.getItem("token");
           }
         });
       createToast(response.data.message, "success");
+      localStorage.clear();
       setIsAuthorized(false);
+      localStorage.clear();
       navigateTo("/login");
     } catch (error) {
       createToast(error.response.data.message, "error"), setIsAuthorized(true);
