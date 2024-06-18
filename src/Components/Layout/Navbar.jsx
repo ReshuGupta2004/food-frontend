@@ -12,11 +12,14 @@ const Navbar = () => {
   const navigateTo = useNavigate();
 
   const handleLogout = async () => {
+    const token = localStorage.getItem("token");
+      console.log("Retrieved token:", token);
     try {
       const response = await axios.get(
         "https://backend-food-amber.vercel.app/api/v1/user/logout",
         {
           withCredentials: true,
+          Authorization: `Bearer ${token}`,
         }
       );
       createToast(response.data.message, "success");
