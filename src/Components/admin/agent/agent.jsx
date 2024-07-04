@@ -16,10 +16,10 @@ useEffect(() => {
         if (data.success && Array.isArray(data.agents)) {
             setAgents(data.agents);
           } else {
-            console.error('Fetched data is not an array:', data);
+            // console.error('Fetched data is not an array:', data);
           }
         } catch (error) {
-          console.error('Error fetching agents:', error);
+          // console.error('Error fetching agents:', error);
         }
       };
        
