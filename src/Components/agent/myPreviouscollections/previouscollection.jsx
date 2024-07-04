@@ -18,7 +18,7 @@ const PreviousCollections = () => {
           },
         });
         const data = await response.json();
-        console.log("data is ", data)
+        // console.log("data is ", data)
         if (data.success) {
           setPreviousCollections(data.previousCollections);
         } else {
@@ -26,7 +26,7 @@ const PreviousCollections = () => {
         }
       } catch (err) {
         setError('Error fetching previous collections.', error);
-        console.error(err);
+        // console.error(err);
       }
     };
 

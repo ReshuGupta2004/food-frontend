@@ -7,7 +7,7 @@ import "./donate.css"
 const Donate = () => {
   const navigate = useNavigate();
   const data = JSON.parse(localStorage.getItem("userData"));
-  console.log("datas",data)
+  // console.log("datas",data)
   const [formData, setFormData] = useState({
     name: data.name,
     foodType: '',
@@ -27,7 +27,7 @@ const Donate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitting form with data:", formData);
+    // console.log("Submitting form with data:", formData);
 
     try {
       const response = await fetch('https://backend-food-amber.vercel.app/api/v1/doner/doner/donate', {
@@ -40,12 +40,12 @@ const Donate = () => {
       });
 
       const data = await response.json();
-      console.log('Form submitted successfully:', data);
+      // console.log('Form submitted successfully:', data);
       createToast(data.message, 'success');
       navigate('/pending-donations');
 
     } catch (error) {
-      console.error('Error submitting form:', error);
+      // console.error('Error submitting form:', error);
       createToast(error.message, 'error');
        
     }

@@ -27,7 +27,7 @@ const DonorDashboard = () => {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
-        console.log("donate data",data)
+        // console.log("donate data",data)
         if (data.success) {
           setDashboardData({
             numCollectedDonations: data.numCollectedDonations,
@@ -42,7 +42,7 @@ const DonorDashboard = () => {
       } catch (err) {
         setError('Error fetching dashboard data.');
         createToast('Error fetching dashboard data.')
-        console.error(err);
+        // console.error(err);
       }
     };
 

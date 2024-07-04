@@ -28,7 +28,7 @@ const PendingCollectionsagent = () => {
       } catch (err) {
         setError('Error fetching pending collections.');
         createToast("Error",error)
-        console.error(err);
+        // console.error(err);
       }
     };
 

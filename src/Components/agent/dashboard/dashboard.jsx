@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import "./dasboard.css";
 import Navigation from '../../Sidenav/sidenav';
+import createToast from '../../../utils/toast';
 
 const AgentDashboard = () => {
   const [dashboardData, setDashboardData] = useState({
@@ -20,14 +21,16 @@ const AgentDashboard = () => {
           }
         });
         const data = await response.json();
-        console.log("donate data", data);
+        // console.log("donate data", data);
         if (data.success && data.data) {
           setDashboardData(data.data);
         } else {
-          console.error('Failed to fetch dashboard data:', data);
+          // console.error('Failed to fetch dashboard data:', data);
+          createToast('Failed to fetch dashboard data:', "error");
         }
       } catch (error) {
-        console.error('Error fetching dashboard data:', error);
+        // console.error('Error fetching dashboard data:', error);
+        createToast(error, "error");
       }
     };
 
