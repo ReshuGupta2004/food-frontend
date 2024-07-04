@@ -2,6 +2,7 @@ import   { useState, useEffect } from 'react';
 
 import './agent.css';  
 import Navigation from '../../Sidenav/sidenav';
+import createToast from '../../../utils/toast';
 
 const Agentdata = () => {
   const [agents, setAgents] = useState([]);
@@ -17,9 +18,11 @@ useEffect(() => {
             setAgents(data.agents);
           } else {
             // console.error('Fetched data is not an array:', data);
+            createToast('Fetched data is not an array:', "error");
           }
         } catch (error) {
           // console.error('Error fetching agents:', error);
+          createToast(error, "error");
         }
       };
        
