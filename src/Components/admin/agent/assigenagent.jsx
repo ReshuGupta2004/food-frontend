@@ -21,6 +21,7 @@ const AssignAgents = () => {
         setDonation(data.donation);
       } catch (error) {
         // console.error('Error fetching donation:', error);
+        createToast(error, "error");
       }
     };
 
@@ -32,6 +33,7 @@ const AssignAgents = () => {
         setAgents(data.agents);
       } catch (error) {
         // console.error('Error fetching agents:', error);
+        createToast(error, "error");
       }
     };
 

@@ -31,7 +31,7 @@ const AcceptDonation = () => {
     } catch (err) {
       setError("Error accepting donation.");
       createToast("Error accepting donation.", "error");
-      console.error(err);
+      // console.error(err);
     } finally {
       setLoading(false);
     }

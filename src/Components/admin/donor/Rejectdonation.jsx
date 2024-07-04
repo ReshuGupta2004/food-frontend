@@ -29,8 +29,8 @@ const RejectDonation = () => {
       navigate(`/admin/donation/view/${donationId}`);
     } catch (err) {
       setError('Error rejecting donation.');
-      createToast('error', 'Error rejecting donation.');
-      console.error(err);
+      createToast('Error rejecting donation.', 'error');
+      // console.error(err);
     } finally {
       setLoading(false);
     }

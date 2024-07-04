@@ -21,7 +21,7 @@ const AllDonation = () => {
         }
 
         const data = await response.json();
-        console.log(data,"fierioere")
+        // console.log(data,"fierioere")
         if (data.success) {
           setDonation(data.donation);
         } else {
@@ -31,7 +31,7 @@ const AllDonation = () => {
       } catch (err) {
         setError('Error fetching donation data.');
         createToast('Error fetching donation data.', "error");
-        console.error(err);
+        // console.error(err);
       }
     };
 

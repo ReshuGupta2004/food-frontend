@@ -4,7 +4,7 @@ import Navigation from '../../Sidenav/sidenav';
 import createToast from "../../../utils/toast";
 const Acceptagent = () => {
   const { donationId } = useParams();
-  console.log("useParams", donationId);
+  // console.log("useParams", donationId);
 
   const [donation, setDonation] = useState(null);
     const [error, setError] = useState(null);
@@ -29,7 +29,7 @@ const Acceptagent = () => {
       } catch (err) {
         setError("Error fetching donation data.");
         createToast("Error fetching donation data.","error")
-        console.error(err);
+        // console.error(err);
       }
     };
     fetchDonationData();

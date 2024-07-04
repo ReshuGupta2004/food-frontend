@@ -20,11 +20,12 @@ const AssignAgent = () => {
           return;
         }
         const data = await response.json();
-        console.log(data,"datassssssssssssss")
+        // console.log(data,"datassssssssssssss")
         setAgents(data.agents);
       } catch (err) {
         setError('Error fetching agents.');
-        console.error(err);
+        // console.error(err);
+        createToast(error, "error");
       }
     };
     fetchAgents();
@@ -52,7 +53,7 @@ const AssignAgent = () => {
     } catch (err) {
       setError('Error assigning agent.');
       
-      console.error(err);
+      // console.error(err);
       createToast(err,"error")
     }
   };
