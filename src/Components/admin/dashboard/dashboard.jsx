@@ -1,6 +1,7 @@
 import   { useEffect, useState } from 'react';
 import "./dasboard.css"; 
 import Navigation from '../../Sidenav/sidenav';
+import createToast from '../../../utils/toast';
 
 const AdminDashboard = () => {
   const [dashboardData, setDashboardData] = useState({
@@ -21,10 +22,12 @@ const AdminDashboard = () => {
         if (data.success && data.data) {
           setDashboardData(data.data); // Correctly set the nested data object
         } else { 
-          console.error('Failed to fetch dashboard data:', data);
+          // console.error('Failed to fetch dashboard data:', data);
+          createToast('Failed to fetch dashboard data:', "error");
         }
       } catch (error) {
-        console.error('Error fetching dashboard data:', error);
+        // console.error('Error fetching dashboard data:', error);
+        createToast('Failed to fetch dashboard data:', "error");
       }
     };
 

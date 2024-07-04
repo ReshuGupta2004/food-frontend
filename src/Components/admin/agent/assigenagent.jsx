@@ -51,7 +51,7 @@ const AssignAgents = () => {
       });
       if (response.ok) {
         createToast('Agent assigned successfully', "success");
-        // history.push('/success');  
+        
       } else {
         // console.error('Error assigning agent');
         createToast('Error assigning agent', "error");
