@@ -20,7 +20,7 @@ const AssignAgents = () => {
         const data = await response.json();
         setDonation(data.donation);
       } catch (error) {
-        console.error('Error fetching donation:', error);
+        // console.error('Error fetching donation:', error);
       }
     };
 
@@ -31,7 +31,7 @@ const AssignAgents = () => {
         const data = await response.json();
         setAgents(data.agents);
       } catch (error) {
-        console.error('Error fetching agents:', error);
+        // console.error('Error fetching agents:', error);
       }
     };
 
@@ -53,11 +53,11 @@ const AssignAgents = () => {
         createToast('Agent assigned successfully', "success");
         // history.push('/success');  
       } else {
-        console.error('Error assigning agent');
+        // console.error('Error assigning agent');
         createToast('Error assigning agent', "error");
       }
     } catch (error) {
-      console.error('Error submitting form:', error);
+      // console.error('Error submitting form:', error);
       createToast(error.message, 'error');
     }
   };
