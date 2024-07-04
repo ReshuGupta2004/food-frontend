@@ -13,7 +13,7 @@ const Navigation = () => {
   const data = JSON.parse(localStorage.getItem("userData"));
   const handleNavToggle = (e) => {
     e.preventDefault();
-    console.log("Nav toggle clicked", !isNavOpen);
+    // console.log("Nav toggle clicked", !isNavOpen);
     setIsNavOpen(!isNavOpen);
   };
   // console.log("djknjkcnoer",data)

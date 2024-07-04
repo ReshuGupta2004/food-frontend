@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Navigation from '../../Sidenav/sidenav';
+import createToast from '../../../utils/toast';
 const DonorPendingDonations = () => {
   const [pendingDonations, setPendingDonations] = useState([]);
 // const data = JSON.parse(localStorage.getItem("userData"))
@@ -23,10 +24,11 @@ const DonorPendingDonations = () => {
         }
 
         const data = await response.json();
-        console.log('Pending donations:', data.pendingDonations);
+        // console.log('Pending donations:', data.pendingDonations);
         setPendingDonations(data.pendingDonations);
       } catch (error) {
-        console.error('Error fetching pending donations:', error);
+        // console.error('Error fetching pending donations:', error);
+        createToast(error, "error");
       }
     };
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
  
 import Navigation from '../../Sidenav/sidenav';
+import createToast from '../../../utils/toast';
 
 const DonorPreviousDonations = () => {
   const [previousDonations, setPreviousDonations] = useState([]);
@@ -25,10 +26,11 @@ const DonorPreviousDonations = () => {
         }
 
         const data = await response.json();
-        console.log("data",data)
+        // console.log("data",data)
         setPreviousDonations(data.previousDonations);
       } catch (error) {
-        console.error('Error fetching previous donations:', error);
+        // console.error('Error fetching previous donations:', error);
+        createToast(error, "error");
       }
     };
 
