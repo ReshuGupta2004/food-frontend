@@ -11,7 +11,7 @@ const CollectionDetails = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log("collectionId from useParams:", collectionId);
+    // console.log("collectionId from useParams:", collectionId);
 
     const fetchCollectionData = async () => {
       try {
@@ -25,7 +25,7 @@ const CollectionDetails = () => {
       } catch (err) {
         setError('Error fetching collection data.');
         createToast("Error fetching collection data");
-        console.error(err);
+        // console.error(err);
       }
     };
 

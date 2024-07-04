@@ -1,6 +1,8 @@
 import  { useEffect, useState } from 'react';
 import './pendingdonation.css';  
 import Navigation from '../../Sidenav/sidenav';
+import createToast from '../../../utils/toast';
+
 const PendingDonations = () => {
   const [pendingDonations, setPendingDonations] = useState([]);
 
@@ -9,14 +11,16 @@ const PendingDonations = () => {
       try {
         const response = await fetch('https://backend-food-amber.vercel.app/api/v1/admin/admin/donations/pending');
         const data = await response.json();
-        console.log("data  ",data)
+        // console.log("data  ",data)
         if (data.success && data.pendingDonations) {
           setPendingDonations(data.pendingDonations);
         } else {
-          console.error('Failed to fetch pending donations:', data);
+          // console.error('Failed to fetch pending donations:', data);
+          createToast('Failed to fetch pending donations', "error");
         }
       } catch (error) {
-        console.error('Error fetching pending donations:', error);
+        // console.error('Error fetching pending donations:', error);
+        createToast(error, "error");
       }
     };
 

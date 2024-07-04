@@ -12,16 +12,16 @@ const Previousdonation = () => {
       try {
         const response = await fetch('https://backend-food-amber.vercel.app/api/v1/admin/admin/donations/previous');
         const data = await response.json();
-        console.log("data ", data);
+        // console.log("data ", data);
         if (data.success && data.previousDonations) {
           setPreviousDonations(data.previousDonations);
         } else {
-          console.error('Failed to fetch previous donations:', data);
+          // console.error('Failed to fetch previous donations:', data);
           createToast('Failed to fetch previous donations.', 'error');
         }
       } catch (error) {
-        console.error('Error fetching previous donations:', error);
-        createToast('Error fetching previous donations.', 'error');
+        // console.error('Error fetching previous donations:', error);
+        createToast(error, 'error');
       }
     };
 

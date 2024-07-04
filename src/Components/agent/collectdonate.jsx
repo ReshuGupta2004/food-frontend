@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navigation from "../Sidenav/sidenav";
+import createToast from '../../../utils/toast';
 
 const CollectDonation = () => {
   const { collectionId } = useParams();
@@ -8,7 +9,7 @@ const CollectDonation = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log("collectionId from useParams:", collectionId); // Debugging line
+    // console.log("collectionId from useParams:", collectionId); // Debugging line
 
     const fetchCollectionData = async () => {
       if (!collectionId) {
@@ -26,7 +27,7 @@ const CollectDonation = () => {
           }
         });
 
-        console.log("response", response); // Debugging line
+        // console.log("response", response); // Debugging line
 
         if (!response.ok) {
           const errorData = await response.text();
@@ -35,7 +36,7 @@ const CollectDonation = () => {
         }
 
         const data = await response.json();
-        console.log("data", data); // Debugging line
+        // console.log("data", data); // Debugging line
 
         if (data.success) {
           setCollection(data.collection);
@@ -44,7 +45,8 @@ const CollectDonation = () => {
         }
       } catch (err) {
         setError('Error fetching collection data.');
-        console.error(err);
+        // console.error(err);
+        createToast(err, "error");
       }
     };
 
