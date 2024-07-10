@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navigation from "../Sidenav/sidenav";
-import createToast from '../../../utils/toast';
+import createToast from "../../utils/toast";
 
 const CollectDonation = () => {
   const { collectionId } = useParams();
