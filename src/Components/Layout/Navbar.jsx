@@ -19,13 +19,16 @@ const token = localStorage.getItem("token");
       const response = await axios.get(
         "https://backend-food-amber.vercel.app/api/v1/user/logout",{
      method: 'POST',
-          credentials: 'include',
+          // credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }
+          withCredentials: true,
         });
       createToast(response.data.message, "success");
+     setIsAuthorized(false);
+    user.clsar();
               await new Promise((resolve) => {
             localStorage.clear();
             resolve();
