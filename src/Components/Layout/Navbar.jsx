@@ -15,17 +15,16 @@ const token = localStorage.getItem("token");
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
       console.log("Retrieved token: logout", token);
-    try {
-      const response = await axios.get(
-        "https://backend-food-amber.vercel.app/api/v1/user/logout",{
-     method: 'POST',
-          // credentials: 'include',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
-          withCredentials: true,
-        });
+   try {
+    const response = await axios.get(
+      "https://backend-food-amber.vercel.app/api/v1/user/logout", {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+        },
+        withCredentials: true, // Ensure cookies are included
+      }
+    );
       createToast(response.data.message, "success");
      setIsAuthorized(false);
     user.clsar();
