@@ -18,7 +18,7 @@ const token = localStorage.getItem("token");
     try {
       const response = await axios.get(
         "https://backend-food-amber.vercel.app/api/v1/user/logout",{
-     method: 'GET',
+     method: 'POST',
           credentials: 'include',
           headers: {
             'Content-Type': 'application/json',
