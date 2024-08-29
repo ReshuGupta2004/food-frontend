@@ -12,7 +12,7 @@ const AgentDashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/agent/agent/dashboard', {
+        const response = await fetch(' https://backend-food-amber.vercel.app/api/v1/agent/agent/dashboard', {
           method: 'GET',
           credentials: 'include',
           headers: {

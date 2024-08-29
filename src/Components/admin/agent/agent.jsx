@@ -11,7 +11,7 @@ useEffect(() => {
     // Fetch  
     const fetchAgents = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/admin/admin/allagents'); // Replace with your API endpoint
+        const response = await fetch(' https://backend-food-amber.vercel.app/api/v1/admin/admin/allagents'); // Replace with your API endpoint
         const data = await response.json();
         
         if (data.success && Array.isArray(data.agents)) {

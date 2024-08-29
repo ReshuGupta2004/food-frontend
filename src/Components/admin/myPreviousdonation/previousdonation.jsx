@@ -10,7 +10,7 @@ const Previousdonation = () => {
   useEffect(() => {
     const fetchPreviousDonations = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/admin/admin/donations/previous');
+        const response = await fetch(' https://backend-food-amber.vercel.app/api/v1/admin/admin/donations/previous');
         const data = await response.json();
         // console.log("data ", data);
         if (data.success && data.previousDonations) {

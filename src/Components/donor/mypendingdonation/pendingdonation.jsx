@@ -7,7 +7,7 @@ const DonorPendingDonations = () => {
   useEffect(() => {
     const fetchPendingDonations = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/doner/doner/donations/pending', {
+        const response = await fetch(' https://backend-food-amber.vercel.app/api/v1/doner/doner/donations/pending', {
           method: 'GET',
           credentials: 'include',  
           headers: {
@@ -38,43 +38,36 @@ const DonorPendingDonations = () => {
   return (
     <main>
         <Navigation/>
-      <div id="main-wrapper">
-        <div className="bg-white shadow-sm p-3">
-          <span className="me-3" id="sidebar-toggler-btn">
-            <i className="fas fa-bars"></i>
-          </span>
-          <h5 className="m-0 color-theme d-inline-block">Pending Donations</h5>
-        </div>
-
-        <div className="border m-4 my-3 p-4 bg-white rounded-2 shadow-sm">
-          <table className="table table-bordered">
-            <thead>
-              <tr>
-                <th scope="col">Donation ID</th>
-                <th scope="col">Food Type</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Cooking Time</th>
-                <th scope="col">Address</th>
-                <th scope="col">Phone</th>
-                <th scope="col">Donor To Admin Msg</th>
-              </tr>
-            </thead>
-            <tbody>
-              {pendingDonations.map((donation) => (
-                <tr key={donation._id}>
-                  <td>{donation._id}</td>
-                  <td>{donation.foodType}</td>
-                  <td>{donation.quantity}</td>
-                  <td>{donation.cookingTime}</td>
-                  <td>{donation.address}</td>
-                  <td>{donation.phone}</td>
-                  <td>{donation.donorToAdminMsg}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+        <div className="ssssssssssss" style={{height:"100vh"}}  >
+        <div className="table-wrapper">
+  <table className="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Donation ID</th>
+        <th scope="col">Food Type</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Cooking Time</th>
+        <th scope="col">Address</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Donor To Admin Msg</th>
+      </tr>
+    </thead>
+    <tbody>
+      {pendingDonations.map((donation) => (
+        <tr key={donation._id}>
+          <td data-label="Donation ID">{donation._id}</td>
+          <td data-label="Food Type">{donation.foodType}</td>
+          <td data-label="Quantity">{donation.quantity}</td>
+          <td data-label="Cooking Time">{donation.cookingTime}</td>
+          <td data-label="Address">{donation.address}</td>
+          <td data-label="Phone">{donation.phone}</td>
+          <td data-label="Donor To Admin Msg">{donation.donorToAdminMsg}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+</div>
     </main>
   );
 };

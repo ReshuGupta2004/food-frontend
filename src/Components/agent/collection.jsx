@@ -15,7 +15,7 @@ const CollectionDetails = () => {
 
     const fetchCollectionData = async () => {
       try {
-        const response = await fetch(`https://backend-food-amber.vercel.app/api/v1/agent/agent/collection/view/${collectionId}`);
+        const response = await fetch(` https://backend-food-amber.vercel.app/api/v1/agent/agent/collection/view/${collectionId}`);
         const data = await response.json();
         if (data.success) {
           setCollection(data.collection);
