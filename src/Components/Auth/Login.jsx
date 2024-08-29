@@ -53,6 +53,7 @@ const Login = () => {
                 createToast("Login Successfully", "success");
                 
             } catch (error) {
+             console.log(error);
                 createToast(error.message, "error");
             }
         }
