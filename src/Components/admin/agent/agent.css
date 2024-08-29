@@ -1,88 +1,38 @@
-#main-wrapper {
-    padding: 20px;
-    height: 100vh;
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table th, .table td {
+  white-space: nowrap; /* Prevent text from wrapping */
+  padding: 8px;
+}
+
+@media (max-width: 768px) {
+  .table thead {
+    display: none; /* Hide the table headers */
   }
-  
-  .agents-main {
+
+  .table tbody tr {
+    display: block;
+    margin-bottom: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    width: 170% !important;
+  }
+
+  .table tbody td {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    padding: 8px 10px;
+    border-top: 1px solid #dee2e6;
+    /* width: 180% !important; */
   }
-  
-  .me {
-    cursor: pointer;
-  }
-  
-  .table {
-    margin-top: 20px;
-    background-color: aliceblue;
-    border-collapse: separate; 
-    border-spacing: 25px 15px;  
-    overflow-x: auto;  
-    -webkit-overflow-scrolling: touch;
-  }
-  
-  .table th,
-  .table td {
+
+  .table tbody td::before {
+    content: attr(data-label); /* Add labels for each data cell */
+    font-weight: bold;
+    flex-basis: 50%;
     text-align: left;
-    /* background-color: aliceblue; */
   }
-  
-  .table th {
-    background-color: aliceblue;
-  }
-  
-  .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-  @media (max-width: 768px) {
-    .table-wrapper {
-      width: 100%;
-      overflow-x: auto; /* Enable horizontal scrolling */
-      -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
-    }
-  
-    .table {
-      width: 100%;
-      min-width: 600px; /* Ensure table is wider than screen width to allow scrolling */
-      white-space: nowrap; /* Prevent table cells from wrapping */
-    }
-  
-    .table thead, .table tbody, .table tr, .table td, .table th {
-      display: block; /* Stack table elements */
-    }
-  
-    .table thead tr {
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-    }
-  
-    .table tr {
-      margin-bottom: 0.625rem;
-    }
-  
-    .table td {
-      border-bottom: 1px solid #dee2e6;
-      position: relative;
-      padding-left: 50%;
-      text-align: right;
-    }
-  
-    .table td::before {
-      content: attr(data-label);
-      position: absolute;
-      left: 10px;
-      width: 45%;
-      padding-right: 10px;
-      white-space: nowrap;
-      text-align: left;
-      font-weight: bold;
-    }
-  
-    .table td:last-child {
-      border-bottom: 0;
-    }
-  }
+}

@@ -18,7 +18,7 @@ const CollectDonationagent = () => {
       }
 
       try {
-        const response = await fetch(` https://backend-food-amber.vercel.app/api/v1/agent/agent/collection/collect/${collectionId}`, {
+        const response = await fetch(`https://backend-food-amber.vercel.app/v1/agent/agent/collection/collect/${collectionId}`, {
           method: 'GET',
           credentials: 'include',
           headers: {

@@ -10,7 +10,7 @@ const PendingCollectionsagent = () => {
   useEffect(() => {
     const fetchPendingCollections = async () => {
       try {
-        const response = await fetch(' https://backend-food-amber.vercel.app/api/v1/agent/agent/collections/pending',{
+        const response = await fetch('https://backend-food-amber.vercel.app/v1/agent/agent/collections/pending',{
           method: 'GET',
           credentials: 'include',
           headers: {

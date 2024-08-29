@@ -17,7 +17,7 @@ const token = localStorage.getItem("token");
       console.log("Retrieved token: logout", token);
    try {
     const response = await axios.get(
-      " https://backend-food-amber.vercel.app/api/v1/user/logout", {
+      "https://backend-food-amber.vercel.app/v1/user/logout", {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,

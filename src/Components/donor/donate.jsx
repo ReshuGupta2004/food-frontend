@@ -32,8 +32,8 @@ const Donate = () => {
   //   // console.log("Submitting form with data:", formData);
 
   //   try {
-  //     const response = await fetch(' https://backend-food-amber.vercel.app/api/v1/doner/doner/donate', {
-  //     const response = await fetch('http://localhost:1000/api/v1/doner/doner/donate', {
+  //     const response = await fetch('https://backend-food-amber.vercel.app/v1/doner/doner/donate', {
+  //     const response = await fetch('https://backend-food-amber.vercel.app/v1/doner/doner/donate', {
   //       method: 'POST',
   //       credentials: 'include', // Include cookies in the request
   //       headers: {
@@ -59,7 +59,7 @@ const Donate = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch(' https://backend-food-amber.vercel.app/api/v1/doner/doner/donate', {
+      const response = await fetch('https://backend-food-amber.vercel.app/v1/doner/doner/donate', {
         method: 'POST',
         credentials: 'include',
         headers: {

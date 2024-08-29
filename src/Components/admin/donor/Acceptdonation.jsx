@@ -12,7 +12,7 @@ const AcceptDonation = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        ` https://backend-food-amber.vercel.app/api/v1/admin/admin/donation/accept/${donationId}`,
+        `https://backend-food-amber.vercel.app/v1/admin/admin/donation/accept/${donationId}`,
         {
           method: "POST",
           credentials: "include",
