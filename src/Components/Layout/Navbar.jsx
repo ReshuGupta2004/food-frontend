@@ -27,7 +27,7 @@ const token = localStorage.getItem("token");
     );
       createToast(response.data.message, "success");
      setIsAuthorized(false);
-    user.clsar();
+    // user.clsar();
               await new Promise((resolve) => {
             localStorage.clear();
             resolve();
@@ -37,7 +37,10 @@ const token = localStorage.getItem("token");
       navigateTo("/login");
     } catch (error) {
       createToast(error.response.data.message, "error"), setIsAuthorized(false);
-     localStorage.clear();
+          await new Promise((resolve) => {
+            localStorage.clear();
+            resolve();
+        });
     }
   };
 
