@@ -18,6 +18,8 @@ const Donate = () => {
     donorToAdminMsg: ''
   });
 
+  const token = localStorage.getItem("token");
+      console.log("Retrieved token: logout", token);
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -25,32 +27,62 @@ const Donate = () => {
     });
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   // console.log("Submitting form with data:", formData);
+
+  //   try {
+  //     const response = await fetch('http://localhost:1000/api/v1/doner/doner/donate', {
+  //       method: 'POST',
+  //       credentials: 'include', // Include cookies in the request
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify({ donation: formData })
+  //     });
+
+  //     const data = await response.json();
+  //     // console.log('Form submitted successfully:', data);
+  //     createToast(data.message, 'success');
+  //     navigate('/pending-donations');
+
+  //   } catch (error) {
+  //     console.error('Error submitting form:', error);
+  //     createToast(error.message, 'error');
+       
+  //   }
+  // };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("Submitting form with data:", formData);
-
+  
     try {
-      const response = await fetch('https://backend-food-amber.vercel.app/api/v1/doner/doner/donate', {
+      const response = await fetch('http://localhost:1000/api/v1/doner/doner/donate', {
         method: 'POST',
-        credentials: 'include', // Include cookies in the request
+        credentials: 'include',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ donation: formData })
+        body: JSON.stringify({ donation: formData }),
       });
-
+  
+      // Check if the response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Server returned a non-JSON response');
+      }
+  
       const data = await response.json();
-      // console.log('Form submitted successfully:', data);
       createToast(data.message, 'success');
       navigate('/pending-donations');
-
     } catch (error) {
-      // console.error('Error submitting form:', error);
+      console.error('Error submitting form:', error);
       createToast(error.message, 'error');
-       
     }
   };
-
+   
   return (
     <main>
       <Navigation />
