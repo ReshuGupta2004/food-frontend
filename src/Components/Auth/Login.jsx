@@ -26,7 +26,8 @@ const Login = () => {
             role: Yup.string().required("Required"),
         }),
  
-        onSubmit: async (values) => {
+        
+       onSubmit: async (values) => {
     try {
         const response = await fetch("https://backend-food-amber.vercel.app/v1/user/login", {
             method: "POST",
@@ -34,28 +35,28 @@ const Login = () => {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify(values),
-            credentials: "include",  
+            credentials: "include",
         });
 
         if (!response.ok) {
-            // Handle non-JSON error response
-            const errorText = await response.text(); // Read as text to handle HTML error pages
+            // Read the response as text (not JSON) since it's an HTML error page
+            const errorText = await response.text();
             throw new Error(`Server Error: ${errorText}`);
         }
 
-        const data = await response.json(); // This will throw if the response is not valid JSON
+        const data = await response.json();
         formik.resetForm();
         setIsAuthorized(true);
-        localStorage.setItem('user', data);
+        localStorage.setItem('user', JSON.stringify(data));
         localStorage.setItem('token', data.token);
-        console.log('Login successful. Token stored in localStorage.');
-        createToast(data.message, "success");
         createToast("Login Successfully", "success");
+
     } catch (error) {
-        console.log(error);
+        console.error(error);
         createToast(error.message, "error");
     }
 }
+
 
         
         
