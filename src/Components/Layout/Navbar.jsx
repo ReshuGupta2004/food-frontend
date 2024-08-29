@@ -36,7 +36,8 @@ const token = localStorage.getItem("token");
       localStorage.clear();
       navigateTo("/login");
     } catch (error) {
-      createToast(error.response.data.message, "error"), setIsAuthorized(true);
+      createToast(error.response.data.message, "error"), setIsAuthorized(false);
+     localStorage.clear();
     }
   };
 
