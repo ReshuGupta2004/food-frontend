@@ -27,36 +27,37 @@ const Login = () => {
         }),
  
         onSubmit: async (values) => {
-            try {
-                const response = await fetch("https://backend-food-amber.vercel.app/v1/user/login", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify(values),
-                    credentials: "include",  
+    try {
+        const response = await fetch("https://backend-food-amber.vercel.app/v1/user/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+            credentials: "include",  
+        });
 
-                });
-        
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.message);
-                }
-        
-                const data = await response.json();
-                formik.resetForm();
-                setIsAuthorized(true);
-                localStorage.setItem('user',data)
-                localStorage.setItem('token', data.token);
-            console.log('Login successful. Token stored in localStorage.');
-                createToast(data.message, "success");
-                createToast("Login Successfully", "success");
-                
-            } catch (error) {
-             console.log(error);
-                createToast(error.message, "error");
-            }
+        if (!response.ok) {
+            // Handle non-JSON error response
+            const errorText = await response.text(); // Read as text to handle HTML error pages
+            throw new Error(`Server Error: ${errorText}`);
         }
+
+        const data = await response.json(); // This will throw if the response is not valid JSON
+        formik.resetForm();
+        setIsAuthorized(true);
+        localStorage.setItem('user', data);
+        localStorage.setItem('token', data.token);
+        console.log('Login successful. Token stored in localStorage.');
+        createToast(data.message, "success");
+        createToast("Login Successfully", "success");
+    } catch (error) {
+        console.log(error);
+        createToast(error.message, "error");
+    }
+}
+
+        
         
     });
 
