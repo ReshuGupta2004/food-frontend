@@ -58,7 +58,7 @@ const Donate = () => {
     e.preventDefault();
   
     try {
-      const response = await fetch(' https://backend-food-amber.vercel.app/api/v1/doner/doner/donate', {
+      const response = await fetch('https://backend-food-amber.vercel.app/api/v1/doner/doner/donate', {
         method: 'POST',
         credentials: 'include',
         headers: {
