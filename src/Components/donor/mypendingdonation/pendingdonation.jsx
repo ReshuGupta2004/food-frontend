@@ -40,7 +40,7 @@ const DonorPendingDonations = () => {
         <Navigation/>
         <div className="ssssssssssss" style={{height:"100vh"}}  >
         <div className="table-wrapper">
-  <table className="table table-bordered">
+  <table className="table table-bordered" style={{overflowX:"auto !important"}}>
     <thead>
       <tr>
         <th scope="col">Donation ID</th>
