@@ -12,7 +12,7 @@ const AcceptDonation = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://backend-food-amber.vercel.app/v1/admin/admin/donation/accept/${donationId}`,
+        `https://ngo-l8vg.vercel.app/v1/admin/admin/donation/accept/${donationId}`,
         {
           method: "POST",
           credentials: "include",

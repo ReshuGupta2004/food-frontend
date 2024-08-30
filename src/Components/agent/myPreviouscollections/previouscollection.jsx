@@ -9,7 +9,7 @@ const PreviousCollections = () => {
   useEffect(() => {
     const fetchPreviousCollections = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/agent/agent/collections/previous',{
+        const response = await fetch('https://ngo-l8vg.vercel.app/v1/agent/agent/collections/previous',{
           method: 'GET',
           credentials: 'include',
           headers: {

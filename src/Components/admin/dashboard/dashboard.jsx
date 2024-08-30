@@ -17,7 +17,7 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/admin/admin/dashboard'); 
+        const response = await fetch('https://ngo-l8vg.vercel.app/v1/admin/admin/dashboard'); 
         const data = await response.json();
         if (data.success && data.data) {
           setDashboardData(data.data); // Correctly set the nested data object

@@ -13,7 +13,7 @@ const AssignAgent = () => {
   useEffect(() => {
     const fetchAgents = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/admin/admin/agents');
+        const response = await fetch('https://ngo-l8vg.vercel.app/v1/admin/admin/agents');
         if (!response.ok) {
           const errorData = await response.json();
           setError(errorData.message || 'Failed to fetch agents.');
@@ -34,7 +34,7 @@ const AssignAgent = () => {
   const handleAssign = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(`https://backend-food-amber.vercel.app/v1/admin/admin/donation/assignt/${donationId}`, {
+      const response = await fetch(`https://ngo-l8vg.vercel.app/v1/admin/admin/donation/assignt/${donationId}`, {
         method: 'POST',
         credentials: 'include',
         headers: {

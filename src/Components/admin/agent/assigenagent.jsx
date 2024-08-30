@@ -16,7 +16,7 @@ const AssignAgents = () => {
      
     const fetchDonation = async () => {
       try {
-        const response = await fetch(`https://backend-food-amber.vercel.app/v1/admin/admin/donation/view/${donationId}`);  
+        const response = await fetch(`https://ngo-l8vg.vercel.app/v1/admin/admin/donation/view/${donationId}`);  
         const data = await response.json();
         setDonation(data.donation);
       } catch (error) {
@@ -28,7 +28,7 @@ const AssignAgents = () => {
  
     const fetchAgents = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/admin/admin/allagents');  
+        const response = await fetch('https://ngo-l8vg.vercel.app/v1/admin/admin/allagents');  
         const data = await response.json();
         setAgents(data.agents);
       } catch (error) {
@@ -44,7 +44,7 @@ const AssignAgents = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`https://backend-food-amber.vercel.app/v1/admin/admin/donation/assign/${donationId}`, {
+      const response = await fetch(`https://ngo-l8vg.vercel.app/v1/admin/admin/donation/assign/${donationId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
