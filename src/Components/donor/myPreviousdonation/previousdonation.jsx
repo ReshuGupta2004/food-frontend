@@ -9,7 +9,7 @@ const DonorPreviousDonations = () => {
   useEffect(() => {
     const fetchPreviousDonations = async () => {
       try {
-        const response = await fetch('https://ngo-l8vg.vercel.app/v1/doner/doner/donations/previous', {
+        const response = await fetch('https://backend-food-amber.vercel.app/v1/doner/doner/donations/previous', {
           method: 'GET',
           credentials: 'include',  
           headers: {

@@ -15,7 +15,7 @@ const DonorDashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch('https://ngo-l8vg.vercel.app/v1/doner/doner/dashboard',{
+        const response = await fetch('https://backend-food-amber.vercel.app/v1/doner/doner/dashboard',{
           method: 'GET',
           credentials: 'include',
           headers: {

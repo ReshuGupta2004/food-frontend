@@ -9,7 +9,7 @@ const PendingDonations = () => {
   useEffect(() => {
     const fetchPendingDonations = async () => {
       try {
-        const response = await fetch('https://ngo-l8vg.vercel.app/v1/admin/admin/donations/pending');
+        const response = await fetch('https://backend-food-amber.vercel.app/v1/admin/admin/donations/pending');
         const data = await response.json();
         // console.log("data  ",data)
         if (data.success && data.pendingDonations) {

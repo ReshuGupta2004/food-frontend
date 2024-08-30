@@ -35,7 +35,7 @@ const Register = () => {
         onSubmit: async (values) => {
             try {
                 const { data } = await axios.post(
-                    "https://ngo-l8vg.vercel.app/v1/user/register",
+                    "https://backend-food-amber.vercel.app/v1/user/register",
                     values,
                     {
                         headers: {

@@ -9,7 +9,7 @@ const Agentdata = () => {
   useEffect(() => {
     const fetchAgents = async () => {
       try {
-        const response = await fetch('https://ngo-l8vg.vercel.app/v1/admin/admin/allagents');
+        const response = await fetch('https://backend-food-amber.vercel.app/v1/admin/admin/allagents');
         const data = await response.json();
         
         if (data.success && Array.isArray(data.agents)) {

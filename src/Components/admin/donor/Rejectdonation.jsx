@@ -12,7 +12,7 @@ const RejectDonation = () => {
   const handleReject = async () => {
     setLoading(true);
     try {
-      const response = await fetch(`https://ngo-l8vg.vercel.app/v1/admin/admin/donation/reject/${donationId}`, {
+      const response = await fetch(`https://backend-food-amber.vercel.app/v1/admin/admin/donation/reject/${donationId}`, {
         method: 'POST',
         credentials: 'include',
         headers: {
