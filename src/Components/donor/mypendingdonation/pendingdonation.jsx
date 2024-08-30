@@ -7,7 +7,7 @@ const DonorPendingDonations = () => {
   useEffect(() => {
     const fetchPendingDonations = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/doner/doner/donations/pending', {
+        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/doner/doner/donations/pending', {
           method: 'GET',
           credentials: 'include',  
           headers: {

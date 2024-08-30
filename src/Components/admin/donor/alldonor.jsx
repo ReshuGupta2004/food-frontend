@@ -12,7 +12,7 @@ const AllDonation = () => {
   useEffect(() => {
     const fetchDonationData = async () => {
       try {
-        const response = await fetch(`https://backend-food-amber.vercel.app/v1/admin/admin/donation/view/${donationId}`);
+        const response = await fetch(`https://backend-food-amber.vercel.app/api/v1/admin/admin/donation/view/${donationId}`);
         if (!response.ok) {
           const errorData = await response.json();
           setError(errorData.message || 'Failed to fetch donation data.');
@@ -21,7 +21,7 @@ const AllDonation = () => {
         }
 
         const data = await response.json();
-        // console.log(data,"fierioere")
+        console.log(data,"fierioere")
         if (data.success) {
           setDonation(data.donation);
         } else {
@@ -31,7 +31,7 @@ const AllDonation = () => {
       } catch (err) {
         setError('Error fetching donation data.');
         createToast('Error fetching donation data.', "error");
-        // console.error(err);
+        console.error(err);
       }
     };
 

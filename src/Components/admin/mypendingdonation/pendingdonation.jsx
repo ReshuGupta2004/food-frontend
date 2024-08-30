@@ -9,18 +9,16 @@ const PendingDonations = () => {
   useEffect(() => {
     const fetchPendingDonations = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/admin/admin/donations/pending');
+        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/admin/admin/donations/pending');
         const data = await response.json();
-        // console.log("data  ",data)
+        console.log("data  ",data)
         if (data.success && data.pendingDonations) {
           setPendingDonations(data.pendingDonations);
         } else {
-          // console.error('Failed to fetch pending donations:', data);
-          createToast('Failed to fetch pending donations', "error");
+          console.error('Failed to fetch pending donations:', data);
         }
       } catch (error) {
-        // console.error('Error fetching pending donations:', error);
-        createToast(error, "error");
+        console.error('Error fetching pending donations:', error);
       }
     };
 
@@ -31,7 +29,7 @@ const PendingDonations = () => {
     <main>
        <Navigation/>
 
-       <div id="main-wrapper">
+       <div id="main-wrapper" style={{height:"100vh"}}>
         <div className="bg-white shadow-sm p-3">
           <span className="me-3" id="sidebar-toggler-btn">
             <i className="fas fa-bars"></i>

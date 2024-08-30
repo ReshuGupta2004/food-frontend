@@ -8,16 +8,20 @@ const AcceptDonation = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const token = localStorage.getItem("token");
+
   const handleAccept = async () => {
     setLoading(true);
+    // const token = localStorage.getItem("token");
     try {
       const response = await fetch(
-        `https://backend-food-amber.vercel.app/v1/admin/admin/donation/accept/${donationId}`,
+        `https://backend-food-amber.vercel.app/api/v1/admin/admin/donation/accept/${donationId}`,
         {
           method: "POST",
           credentials: "include",
           headers: {
             "Content-Type": "application/json",
+            'Authorization': `Bearer ${token}`,
           },
         }
       );

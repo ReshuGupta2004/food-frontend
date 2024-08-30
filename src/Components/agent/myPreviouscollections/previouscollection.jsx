@@ -9,7 +9,7 @@ const PreviousCollections = () => {
   useEffect(() => {
     const fetchPreviousCollections = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/agent/agent/collections/previous',{
+        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/agent/agent/collections/previous',{
           method: 'GET',
           credentials: 'include',
           headers: {
@@ -40,7 +40,7 @@ const PreviousCollections = () => {
   return (
     <main>
       <Navigation/>
-      <div id="main-wrapper">
+      <div id="main-wrapper" style={{height:"100vh"}}>
         <div className="bg-white shadow-sm p-3">
           <span className="me-3" id="sidebar-toggler-btn">
             <i className="fas fa-bars"></i>

@@ -11,7 +11,16 @@ const Acceptagent = () => {
   useEffect(() => { 
     const fetchDonationData = async () => {
       try {
-        const response = await fetch(`https://backend-food-amber.vercel.app/v1/admin/admin/donation/accept/${donationId}`);
+        const response = await fetch(
+          `https://backend-food-amber.vercel.app/api/v1/admin/admin/donation/accept/${donationId}`,
+          {
+            method: "POST",
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         if (!response.ok) {
           const errorData = await response.json();
           setError(errorData.message || "Failed to fetch donation data.");

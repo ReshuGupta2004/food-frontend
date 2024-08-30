@@ -17,20 +17,17 @@ const AdminDashboard = () => {
   useEffect(() => {
     const fetchDashboardData = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/admin/admin/dashboard'); 
+        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/admin/admin/dashboard'); 
         const data = await response.json();
         if (data.success && data.data) {
           setDashboardData(data.data); // Correctly set the nested data object
         } else { 
-          // console.error('Failed to fetch dashboard data:', data);
-          createToast('Failed to fetch dashboard data:', "error");
+          console.error('Failed to fetch dashboard data:', data);
         }
       } catch (error) {
-        // console.error('Error fetching dashboard data:', error);
-        createToast('Failed to fetch dashboard data:', "error");
+        console.error('Error fetching dashboard data:', error);
       }
     };
-
     fetchDashboardData();
   }, []);
 

@@ -9,18 +9,18 @@ const Agentdata = () => {
   useEffect(() => {
     const fetchAgents = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/admin/admin/allagents');
+        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/admin/admin/allagents');  
         const data = await response.json();
         
         if (data.success && Array.isArray(data.agents)) {
-          setAgents(data.agents);
-        } else {
-          createToast('Fetched data is not an array', "error");
+            setAgents(data.agents);
+          } else {
+            console.error('Fetched data is not an array:', data);
+          }
+        } catch (error) {
+          console.error('Error fetching agents:', error);
         }
-      } catch (error) {
-        createToast(error, "error");
-      }
-    };
+      };
     
     fetchAgents();
   }, []);

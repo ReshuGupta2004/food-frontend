@@ -10,16 +10,18 @@ const Previousdonation = () => {
   useEffect(() => {
     const fetchPreviousDonations = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/admin/admin/donations/previous');
+        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/admin/admin/donations/previous');
         const data = await response.json();
-        
+        console.log("data ", data);
         if (data.success && data.previousDonations) {
           setPreviousDonations(data.previousDonations);
         } else {
+          console.error('Failed to fetch previous donations:', data);
           createToast('Failed to fetch previous donations.', 'error');
         }
       } catch (error) {
-        createToast(error, 'error');
+        console.error('Error fetching previous donations:', error);
+        createToast('Error fetching previous donations.', 'error');
       }
     };
 
@@ -30,7 +32,7 @@ const Previousdonation = () => {
     <main>
       <Navigation />  
 
-      <div id="main-wrapper">
+      <div id="main-wrapper" style={{height:"100vh"}}>
         <div className="bg-white shadow-sm p-3">
           <span className="me-3" id="sidebar-toggler-btn">
             <i className="fas fa-bars"></i>

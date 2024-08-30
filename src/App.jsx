@@ -40,7 +40,7 @@ export default function App() {
   //   const fetchUser = async () => {
   //     try {
   //         const res = await axios.get(
-  //             "https://backend-food-amber.vercel.app/v1/user/getuser",
+  //             "https://backend-food-amber.vercel.app/api/v1/user/getuser",
   //             {
   //                 withCredentials: true,
   //                 authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -63,7 +63,7 @@ export default function App() {
       console.log("Retrieved token:", token);
       try {
         const res = await axios.get(
-          "https://backend-food-amber.vercel.app/v1/user/getuser",
+          "https://backend-food-amber.vercel.app/api/v1/user/getuser",
           {
             headers: {
               Authorization: `Bearer ${token}`,

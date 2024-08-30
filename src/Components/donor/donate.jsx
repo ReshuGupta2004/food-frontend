@@ -55,26 +55,53 @@ const Donate = () => {
   // };
 
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  
+  //   try {
+  //     const response = await fetch('https://backend-food-amber.vercel.app/api/v1/doner/doner/donate', {
+  //       method: 'POST',
+  //       credentials: 'include', // Include cookies in the request
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       body: JSON.stringify({ donation: formData })
+  //     });
+  
+  //     // Check if the response is JSON
+  //     // const contentType = response.headers.get('content-type');
+  //     // if (!contentType || !contentType.includes('application/json')) {
+  //     //   throw new Error('Server returned a non-JSON response');
+  //     // }
+  
+  //     const data = await response.json();
+  //     createToast(data.message, 'success');
+  //     navigate('/pending-donations');
+  //   } catch (error) {
+  //     console.error('Error submitting form:', error);
+  //     createToast(error.message, 'error');
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
   
     try {
-      const response = await fetch('https://backend-food-amber.vercel.app/v1/doner/doner/donate', {
+      const response = await fetch('https://backend-food-amber.vercel.app/api/v1/doner/doner/donate', {
         method: 'POST',
-        credentials: 'include',
+        credentials: 'include',   
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${token}`  
         },
-        body: JSON.stringify({ donation: formData }),
+        body: JSON.stringify({ donation: formData })
       });
   
-      // Check if the response is JSON
-      const contentType = response.headers.get('content-type');
-      if (!contentType || !contentType.includes('application/json')) {
-        throw new Error('Server returned a non-JSON response');
+  
+      if (!response.ok) {
+        throw new Error(`Server returned an error: ${response.status} ${response.statusText}`);
       }
   
+ 
       const data = await response.json();
       createToast(data.message, 'success');
       navigate('/pending-donations');
@@ -83,6 +110,7 @@ const Donate = () => {
       createToast(error.message, 'error');
     }
   };
+  
 
   return (
     <main>

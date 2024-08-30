@@ -10,7 +10,7 @@ const PendingCollectionsagent = () => {
   useEffect(() => {
     const fetchPendingCollections = async () => {
       try {
-        const response = await fetch('https://backend-food-amber.vercel.app/v1/agent/agent/collections/pending',{
+        const response = await fetch('https://backend-food-amber.vercel.app/api/v1/agent/agent/collections/pending',{
           method: 'GET',
           credentials: 'include',
           headers: {
@@ -42,7 +42,7 @@ const PendingCollectionsagent = () => {
   return (
     <main>
       <Navigation/> 
-      <div id="main-wrapper">
+      <div id="main-wrapper" style={{height:"100vw"}}>
         <div className="bg-white shadow-sm p-3">
           <span className="me-3" id="sidebar-toggler-btn">
             <i className="fas fa-bars"></i>
